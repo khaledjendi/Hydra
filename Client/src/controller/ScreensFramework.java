@@ -13,8 +13,8 @@ public class ScreensFramework extends Application {
     public static String hangmanClientID = "main;800;650";
     public static String hangmanClientFile = "/client/HangmanClient.fxml";
 
-    public static String insertingServerScreenID = "InsertingServerScreen;500;410";
-    public static String insertingServerScreenFile = "/client/InsertingServerScreen.fxml";
+    public static String insertingServerScreenID = "serverManager;500;410";
+    public static String insertingServerScreenFile = "/client/ServerManager.fxml";
 
     @Override
     public void start(Stage primaryStage) throws Exception {

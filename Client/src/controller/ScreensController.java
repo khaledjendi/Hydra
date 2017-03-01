@@ -113,7 +113,7 @@ public class ScreensController extends StackPane {
             case "main":
                 primaryStage.setTitle("Hangman Client Application!");
                 break;
-            case "InsertingServerScreen":
+            case "serverManager":
                 primaryStage.setTitle("Add Server");
                 break;
             default:
