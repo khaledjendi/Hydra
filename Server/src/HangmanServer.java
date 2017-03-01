@@ -29,7 +29,7 @@ public class HangmanServer {
             System.out.printf("Awaiting connections from port [%s]...%n%n", serverSocket.getLocalPort());
             while (listening) {
                 Socket clientSocket = serverSocket.accept();
-                executorService.execute(new HangmanServerHandler(words, clientSocket)); //
+                executorService.execute(new HangmanServerHandler(words, clientSocket));
                 //(new HangmanServerHandler(words, clientSocket)).start();
                 System.out.printf("Client: %s [%s] is connected%n", clientSocket.getLocalAddress().getHostName(), clientSocket.getLocalAddress().getHostAddress());
             }
@@ -54,7 +54,7 @@ public class HangmanServer {
         words = new ArrayList<String>();
         String line;
         try {
-            BufferedReader bReader = new BufferedReader(new FileReader("words.txt"));
+            BufferedReader bReader = new BufferedReader(new FileReader("Server/words.txt"));
 
             while ((line = bReader.readLine()) != null) {
                 words.add(line.toLowerCase());
