@@ -129,6 +129,7 @@ public class ServerManagerController implements Initializable, IScreensControlle
 
     private String addServer(String srvName, String srvIP, String port) {
         try {
+            //Will be changed later to SAX [Simple API XML] because it is light weight !
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 

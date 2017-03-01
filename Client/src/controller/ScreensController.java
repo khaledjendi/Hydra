@@ -111,10 +111,10 @@ public class ScreensController extends StackPane {
     private void setNodeTitle(String name) {
         switch (name.split(";")[0]) {
             case "main":
-                primaryStage.setTitle("Hangman Client Application!");
+                primaryStage.setTitle("Hydra [Hangman Client Application]");
                 break;
             case "serverManager":
-                primaryStage.setTitle("Add Server");
+                primaryStage.setTitle("Hydra ServerManager");
                 break;
             default:
                 primaryStage.setTitle("");

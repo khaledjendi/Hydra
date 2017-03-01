@@ -146,8 +146,13 @@ public class HangmanClientController implements Initializable, IScreensControlle
             cs.start();
             ongoingGame = true;
         } else {
-            initializeGameVariables(false);
-            srvConn.writeToServer("new_game");
+            try {
+                initializeGameVariables(false);
+                srvConn.writeToServer("new_game");
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+
         }
 
     }

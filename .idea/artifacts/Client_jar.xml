@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Client:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Client_jar</output-path>
+    <root id="archive" name="Client.jar">
+      <element id="module-output" name="Client" />
+      <element id="extracted-dir" path="$USER_HOME$/jcomponents/javafx/fontawesomefx-8.0.10.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/jcomponents/javafx/jfoenix.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
