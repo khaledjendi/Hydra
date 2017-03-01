@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * Created by khaled on 3/1/17.
+ * Created by kal on 3/1/17.
  */
 public class ScreensFramework extends Application {
     // Note: Many optimizations will be done for the ScreensFramework in future releases.
