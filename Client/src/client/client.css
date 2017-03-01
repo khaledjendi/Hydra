@@ -1,0 +1,20 @@
+
+.mainFxmlClass {
+
+}
+
+.srvTree .tree-cell {
+    -fx-font: 13px "Century Gothic", Tahoma;
+    -fx-stroke: #999;
+    -fx-background-color: #999 ;
+    -fx-text-fill: #ffffff ;
+}
+
+.srvTree .tree-cell:selected {
+    -fx-font-weight: bold ;
+    -fx-background-color: rgba(43, 87, 160, 0.5); 
+}
+
+.word{
+    -fx-line-spacing: 10em;
+}
