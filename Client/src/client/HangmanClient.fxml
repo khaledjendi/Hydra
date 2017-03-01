@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.canvas.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.HangmanClientController">
+   <children>
+      <SplitPane dividerPositions="0.12374581939799331, 0.5" layoutX="271.0" layoutY="137.0" orientation="VERTICAL" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="70.0" prefWidth="160.0">
+               <children>
+                  <HBox layoutX="17.0" layoutY="13.0">
+                     <children>
+                        <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="17.0" layoutY="13.0">
+                           <image>
+                              <Image url="@hangman_icon.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="34.0" fitWidth="340.0" layoutX="59.0" layoutY="19.0">
+                           <image>
+                              <Image url="@hangman_large.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets top="6.0" />
+                           </HBox.margin>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="589.0" layoutY="20.0" prefHeight="30.0" prefWidth="299.0" spacing="19.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="20.0">
+                     <children>
+                        <JFXButton fx:id="addSrv" buttonType="RAISED" layoutX="567.0" layoutY="21.0" minWidth="-Infinity" onAction="#addSrvAction" prefHeight="30.0" prefWidth="90.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="Add Server" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="13.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="playGame" buttonType="RAISED" layoutX="674.0" layoutY="21.0" minWidth="-Infinity" onAction="#playGameAction" prefHeight="30.0" prefWidth="90.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="Play Game" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="13.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="reset" buttonType="RAISED" minWidth="-Infinity" onAction="#resetAction" prefHeight="30.0" prefWidth="90.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="Stop/ Reset" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic" size="13.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="503.0" prefWidth="798.0">
+               <children>
+                  <SplitPane dividerPositions="0.23115577889447236" layoutX="132.0" layoutY="74.0" prefHeight="520.0" prefWidth="798.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane maxWidth="-Infinity" minHeight="0.0" minWidth="-Infinity" prefHeight="160.0" prefWidth="183.0">
+                           <children>
+                              <BorderPane layoutX="-8.0" layoutY="45.0" prefHeight="489.0" prefWidth="183.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <center>
+                                    <TreeView fx:id="srvTree" prefHeight="200.0" prefWidth="180.0" styleClass="srvTree" stylesheets="@client.css" BorderPane.alignment="CENTER" />
+                                 </center>
+                                 <top>
+                                    <Label alignment="CENTER" prefHeight="16.0" prefWidth="183.0" text="Select a server" textAlignment="CENTER" BorderPane.alignment="CENTER">
+                                       <font>
+                                          <Font name="Century Gothic" size="13.0" />
+                                       </font>
+                                       <BorderPane.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </BorderPane.margin>
+                                    </Label>
+                                 </top>
+                                 <bottom>
+                                    <HBox alignment="CENTER" prefHeight="20.0" prefWidth="173.0" BorderPane.alignment="CENTER">
+                                       <BorderPane.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </BorderPane.margin>
+                                       <children>
+                                          <Label fx:id="selecredSrv" text="No Server Selected" textFill="#dd6f00">
+                                             <padding>
+                                                <Insets left="5.0" right="5.0" />
+                                             </padding>
+                                             <font>
+                                                <Font name="Century Gothic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </bottom>
+                              </BorderPane>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" stylesheets="@client.css">
+                           <children>
+                              <HBox prefHeight="65.0" prefWidth="605.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                 <children>
+                                    <VBox alignment="CENTER" layoutX="14.0" layoutY="7.0" maxHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="290.0">
+                                       <children>
+                                          <Label layoutX="471.0" layoutY="7.0" text="Guess The Word">
+                                             <font>
+                                                <Font name="Century Gothic" size="23.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="word" layoutX="523.0" layoutY="36.0" minWidth="-Infinity" text="-" textFill="#dd6f00">
+                                             <font>
+                                                <Font name="Century Gothic" size="28.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets left="5.0" right="5.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <Region prefHeight="65.0" prefWidth="30.0" HBox.hgrow="ALWAYS" />
+                                    <VBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="119.0">
+                                       <children>
+                                          <Label layoutX="471.0" layoutY="7.0" text="Tries Left">
+                                             <font>
+                                                <Font name="Century Gothic" size="23.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label fx:id="remainingAttempts" layoutX="523.0" layoutY="36.0" text="0" textFill="#dd6f00">
+                                             <font>
+                                                <Font name="Century Gothic" size="28.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <Region prefHeight="65.0" prefWidth="30.0" HBox.hgrow="ALWAYS" />
+                                    <VBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="119.0">
+                                       <children>
+                                          <Label layoutX="471.0" layoutY="7.0" text="Score">
+                                             <font>
+                                                <Font name="Century Gothic" size="23.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label fx:id="score" layoutX="523.0" layoutY="36.0" text="0" textFill="#dd6f00">
+                                             <font>
+                                                <Font name="Century Gothic" size="28.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <VBox layoutX="32.0" layoutY="80.0" spacing="9.0">
+                                 <children>
+                                    <HBox layoutX="23.0" layoutY="93.0" prefHeight="36.0" prefWidth="220.0" spacing="13.0">
+                                       <children>
+                                          <JFXButton buttonType="RAISED" layoutX="14.0" layoutY="105.0" minWidth="-Infinity" onAction="#sendLetter" prefHeight="36.0" prefWidth="45.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="A" textFill="WHITE">
+                                             <font>
+                                                <Font name="BankGothic Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <JFXButton buttonType="RAISED" layoutX="69.0" layoutY="105.0" minWidth="-Infinity" onAction="#sendLetter" prefHeight="36.0" prefWidth="45.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="B" textFill="WHITE">
+                                             <font>
+                                                <Font name="BankGothic Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <JFXButton buttonType="RAISED" layoutX="123.0" layoutY="105.0" minWidth="-Infinity" onAction="#sendLetter" prefHeight="36.0" prefWidth="45.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="C" textFill="WHITE">
+                                             <font>
+                                                <Font name="BankGothic Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <JFXButton buttonType="RAISED" layoutX="177.0" layoutY="105.0" minWidth="-Infinity" onAction="#sendLetter" prefHeight="36.0" prefWidth="45.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="D" textFill="WHITE">
+                                             <font>
+                                                <Font name="BankGothic Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="23.0" layoutY="138.0" prefHeight="36.0" prefWidth="220.0" spacing="13.0">
+                                       <children>
+                                          <JFXButton buttonType="RAISED" layoutX="14.0" layoutY="105.0" minWidth="-Infinity" onAction="#sendLetter" prefHeight="36.0" prefWidth="45.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="E" textFill="WHITE">
+                                             <font>
+                                                <Font name="BankGothic Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <JFXButton buttonType="RAISED" layoutX="69.0" layoutY="105.0" minWidth="-Infinity" onAction="#sendLetter" prefHeight="36.0" prefWidth="45.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="F" textFill="WHITE">
+                                             <font>
+                                                <Font name="BankGothic Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <JFXButton buttonType="RAISED" layoutX="123.0" layoutY="105.0" minWidth="-Infinity" onAction="#sendLetter" prefHeight="36.0" prefWidth="45.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="G" textFill="WHITE">
+                                             <font>
+                                                <Font name="BankGothic Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <JFXButton buttonType="RAISED" layoutX="177.0" layoutY="105.0" minWidth="-Infinity" onAction="#sendLetter" prefHeight="36.0" prefWidth="45.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="H" textFill="WHITE">
+                                             <font>
+                                                <Font name="BankGothic Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="23.0" layoutY="183.0" prefHeight="36.0" prefWidth="220.0" spacing="13.0">
+                                       <children>
+                                          <JFXButton buttonType="RAISED" layoutX="14.0" layoutY="105.0" minWidth="-Infinity" onAction="#sendLetter" prefHeight="36.0" prefWidth="45.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="I" textFill="WHITE">
+                                             <font>
+                                                <Font name="BankGothic Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <JFXButton buttonType="RAISED" layoutX="69.0" layoutY="105.0" minWidth="-Infinity" onAction="#sendLetter" prefHeight="36.0" prefWidth="45.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="J" textFill="WHITE">
+                                             <font>
+                                                <Font name="BankGothic Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <JFXButton buttonType="RAISED" layoutX="123.0" layoutY="105.0" minWidth="-Infinity" onAction="#sendLetter" prefHeight="36.0" prefWidth="45.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="K" textFill="WHITE">
+                                             <font>
+                                                <Font name="BankGothic Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <JFXButton buttonType="RAISED" layoutX="177.0" layoutY="105.0" minWidth="-Infinity" onAction="#sendLetter" prefHeight="36.0" prefWidth="45.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="L" textFill="WHITE">
+                                             <font>
+                                                <Font name="BankGothic Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="23.0" layoutY="228.0" prefHeight="36.0" prefWidth="220.0" spacing="13.0">
+                                       <children>
+                                          <JFXButton buttonType="RAISED" layoutX="14.0" layoutY="105.0" minWidth="-Infinity" onAction="#sendLetter" prefHeight="36.0" prefWidth="45.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="M" textFill="WHITE">
+                                             <font>
+                                                <Font name="BankGothic Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <JFXButton buttonType="RAISED" layoutX="69.0" layoutY="105.0" minWidth="-Infinity" onAction="#sendLetter" prefHeight="36.0" prefWidth="45.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="N" textFill="WHITE">
+                                             <font>
+                                                <Font name="BankGothic Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <JFXButton buttonType="RAISED" layoutX="123.0" layoutY="105.0" minWidth="-Infinity" onAction="#sendLetter" prefHeight="36.0" prefWidth="45.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="O" textFill="WHITE">
+                                             <font>
+                                                <Font name="BankGothic Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <JFXButton buttonType="RAISED" layoutX="177.0" layoutY="105.0" minWidth="-Infinity" onAction="#sendLetter" prefHeight="36.0" prefWidth="45.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="P" textFill="WHITE">
+                                             <font>
+                                                <Font name="BankGothic Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="23.0" layoutY="273.0" prefHeight="36.0" prefWidth="220.0" spacing="13.0">
+                                       <children>
+                                          <JFXButton buttonType="RAISED" layoutX="14.0" layoutY="105.0" minWidth="-Infinity" onAction="#sendLetter" prefHeight="36.0" prefWidth="45.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="Q" textFill="WHITE">
+                                             <font>
+                                                <Font name="BankGothic Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <JFXButton buttonType="RAISED" layoutX="69.0" layoutY="105.0" minWidth="-Infinity" onAction="#sendLetter" prefHeight="36.0" prefWidth="45.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="R" textFill="WHITE">
+                                             <font>
+                                                <Font name="BankGothic Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <JFXButton buttonType="RAISED" layoutX="123.0" layoutY="105.0" minWidth="-Infinity" onAction="#sendLetter" prefHeight="36.0" prefWidth="45.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="S" textFill="WHITE">
+                                             <font>
+                                                <Font name="BankGothic Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <JFXButton buttonType="RAISED" layoutX="177.0" layoutY="105.0" minWidth="-Infinity" onAction="#sendLetter" prefHeight="36.0" prefWidth="45.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="T" textFill="WHITE">
+                                             <font>
+                                                <Font name="BankGothic Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                       </children>
+                                    </HBox>
+                                    <HBox layoutX="23.0" layoutY="318.0" prefHeight="36.0" prefWidth="220.0" spacing="13.0">
+                                       <children>
+                                          <JFXButton buttonType="RAISED" layoutX="14.0" layoutY="105.0" minWidth="-Infinity" onAction="#sendLetter" prefHeight="36.0" prefWidth="45.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="U" textFill="WHITE">
+                                             <font>
+                                                <Font name="BankGothic Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <JFXButton buttonType="RAISED" layoutX="69.0" layoutY="105.0" minWidth="-Infinity" onAction="#sendLetter" prefHeight="36.0" prefWidth="45.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="V" textFill="WHITE">
+                                             <font>
+                                                <Font name="BankGothic Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <JFXButton buttonType="RAISED" layoutX="123.0" layoutY="105.0" minWidth="-Infinity" onAction="#sendLetter" prefHeight="36.0" prefWidth="45.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="W" textFill="WHITE">
+                                             <font>
+                                                <Font name="BankGothic Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <JFXButton buttonType="RAISED" layoutX="177.0" layoutY="105.0" minWidth="-Infinity" onAction="#sendLetter" prefHeight="36.0" prefWidth="45.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="X" textFill="WHITE">
+                                             <font>
+                                                <Font name="BankGothic Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" layoutX="23.0" layoutY="363.0" prefHeight="36.0" prefWidth="220.0" spacing="13.0">
+                                       <children>
+                                          <JFXButton buttonType="RAISED" layoutX="14.0" layoutY="105.0" minWidth="-Infinity" onAction="#sendLetter" prefHeight="36.0" prefWidth="45.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="Y" textFill="WHITE">
+                                             <font>
+                                                <Font name="BankGothic Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <JFXButton buttonType="RAISED" layoutX="69.0" layoutY="105.0" minWidth="-Infinity" onAction="#sendLetter" prefHeight="36.0" prefWidth="45.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="Z" textFill="WHITE">
+                                             <font>
+                                                <Font name="BankGothic Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <Label layoutX="24.0" layoutY="401.0" text="--- Or Guess Whole Word ---" textFill="#dd6f00">
+                                 <font>
+                                    <Font name="Century Gothic" size="18.0" />
+                                 </font>
+                              </Label>
+                              <HBox layoutX="24.0" layoutY="445.0" spacing="5.0">
+                                 <children>
+                                    <JFXTextField fx:id="wholeWord" focusColor="#dd6f00" labelFloat="true" layoutX="24.0" layoutY="449.0" maxWidth="167.0" minWidth="120.0" prefHeight="33.0" prefWidth="167.0" promptText="Entire Word" />
+                                    <JFXButton fx:id="sendWholeWord" buttonType="RAISED" layoutX="198.0" layoutY="449.0" minWidth="-Infinity" onAction="#sendWholeWordAction" prefHeight="30.0" prefWidth="64.0" ripplerFill="WHITE" style="-fx-background-color: #2196F3;" text="Send" textFill="WHITE">
+                                       <font>
+                                          <Font name="Century Gothic" size="13.0" />
+                                       </font>
+                                    </JFXButton>
+                                 </children>
+                              </HBox>
+                              <ImageView fx:id="hang" fitHeight="306.0" fitWidth="301.0" layoutX="303.0" layoutY="80.0" preserveRatio="true" AnchorPane.rightAnchor="0.0">
+                                 <image>
+                                    <Image url="@../hangs/hang.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="gameStatus" alignment="CENTER" contentDisplay="TOP" layoutX="306.0" layoutY="446.0" prefHeight="36.0" prefWidth="281.0" textAlignment="CENTER" textFill="#dd6f00" AnchorPane.rightAnchor="0.0">
+                                 <font>
+                                    <Font name="Century Gothic" size="28.0" />
+                                 </font>
+                              </Label>
+                              <HBox layoutY="495.0" prefHeight="20.0" prefWidth="605.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                 <children>
+                                    <Label text="Information:">
+                                       <font>
+                                          <Font name="Century Gothic" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="info" text="-" textFill="#dd6f00">
+                                       <font>
+                                          <Font name="Century Gothic" size="13.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" right="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                              </HBox>
+                              <ImageView fx:id="hangItems" fitHeight="52.0" fitWidth="281.0" layoutX="324.0" layoutY="387.0" AnchorPane.rightAnchor="0.0">
+                                 <image>
+                                    <Image url="@../item/item1.png" />
+                                 </image>
+                              </ImageView>
+                           </children></AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+            <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="45.0" prefWidth="605.0" style="-fx-background-color: #D3D3D3;">
+               <children>
+                  <Label layoutX="14.0" layoutY="578.0" prefHeight="22.0" prefWidth="800.0" text="© Khaled Jendi, Assignment 1, Hangman Client" textAlignment="CENTER" textFill="#090432" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="576.0" HBox.hgrow="ALWAYS">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Century Gothic" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
