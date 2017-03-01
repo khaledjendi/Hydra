@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 /**
- * Created by khaled on 3/1/17.
+ * Created by kal on 3/1/17.
  */
 public class ScreensController extends StackPane {
 
