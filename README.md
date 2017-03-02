@@ -1,4 +1,5 @@
 ## KTH - ADVANCED NETWORK PROGRAMMING WITH JAVA [ID2212]
 Hydra is a JavaFX hangman game that allows multiple players to connect to a server & play
 
-![HangmanCleintScreenShot](Client/HydraClient_ScreenShot.png?raw=true)
+####Hydra Youtube Video: [Click on the screenshot image]
+<a href="https://www.youtube.com/watch?v=OVKcSuzGifU"><img src="Client/HydraClient_ScreenShot.png" alt="HangmanCleintScreenShot" width="300px" height="244px" /></a>
