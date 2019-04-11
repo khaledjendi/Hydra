@@ -1,7 +1,7 @@
 ## KTH - ADVANCED NETWORK PROGRAMMING WITH JAVA [ID2212]
 Hydra is a responsive multi-threaded JavaFX hangman game that allows multiple players to connect to a server & play
 
-####Hydra Youtube Video: 
+#### Hydra Youtube Video: 
 
 [Click on the screenshot image]
 
